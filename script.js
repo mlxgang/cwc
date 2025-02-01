@@ -77,7 +77,7 @@ form.onsubmit = (e) => {
             break;
           case 'office':
             const officeInfo = officeHandler([prices[key], value])
-            result += title + '. ' + officeInfo + '\n'
+            result += title + '. ' + officeInfo.text + '\n'
             summary += officeInfo.price
             break;
           default:
