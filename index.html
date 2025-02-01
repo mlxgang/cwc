@@ -1,242 +1,72 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>calculator</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-        }
-
-        .block {
-            width: 250px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin: 25px 0;
-            border: 2px solid black;
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        [data-input] {
-            display: none;
-        }
-
-        input[data-pc]:checked ~ [data-input] {
-            display: block;
-        }
-
-        label[data-office] {
-            display: none;
-        }
-
-        input[data-office]:checked ~ label[data-office] {
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<form name="form">
+<form name="cart" class="form">
     <div class="block">
-        <label>
-            Название
-            <input type="text" name="title" placeholder="Название">
+        <input id="title" type="text" placeholder="Название" name="title" required/>
+    </div>
+
+    <div class="block">
+        <label id="pc_build_option">
+            <h2>Сборка ПК</h2>
         </label>
     </div>
 
     <div class="block">
-        <label for="pc">Сборка ПК</label>
-        <input id="pc" type="checkbox" name="pc" data-pc >
-        <label data-input>
-            Офисный
-            <input type="radio" value="PC" name="pc-type" checked>
-        </label>
-        <label data-input>
-            С подсветка
-            <input type="radio" value="GAMING_PC" name="pc-type">
-        </label>
-    </div>
-
-    <div class="block">
-        <p>ОС</p>
+        <h2>Операционная система</h2>
         <label>
+            <input type="radio" name="os" value="windows_10" checked/>
             Windows 10
-            <input type="radio" name="os-type" value="WINDOWS_10" checked>
         </label>
         <label>
+            <input type="radio" name="os" value="windows_11"/>
             Windows 11
-            <input type="radio" name="os-type" value="WINDOWS_11">
         </label>
     </div>
 
     <div class="block">
-        <p>
-            Ключ для ОС
-        </p>
+        <h2>Ключ</h2>
         <label>
-            Нужно купить
-            <input type="radio" value="need-to-buy" name="license-key" checked>
+            <input type="radio" name="os_key" value="bios" checked/>
+            Ключ подцепился
         </label>
         <label>
-            Покупал
-            <input type="radio" value="bought" name="license-key" data-win-key>
+            <input type="radio" name="os_key" value="need-to-buy"/>
+            Нужно купить ключ
         </label>
         <label>
-            Подцепился
-            <input type="radio" value="BIOS" name="license-key">
+            <input type="radio" name="os_key" value="bought"/>
+            Ключ покупал
         </label>
     </div>
 
     <div class="block">
-        <label for="office">Офис</label>
-        <input type="checkbox" id="office" name="office" data-office>
-
-        <label data-office>
-            Нужно купить
-            <input type="radio" value="OFFICE" name="office-type" checked>
-        </label>
-        <label data-office>
-            Покупал
-            <input type="radio" value="bought" name="office-type">
-        </label>
-        <label data-office>
-            Сторонний ключ
-            <input type="radio" value="no-need" name="office-type">
+        <label id="office_option">
+            <h2>MS Office</h2>
         </label>
     </div>
 
     <div class="block">
-        <label>
-            Копирование информации
-            <input type="checkbox" id="info" value="INFO_COPY" name="copy">
+        <label class="optional">
+            <input type="checkbox" name="copy"/>
+            <span>Копирование информации</span>
         </label>
-
     </div>
-    <button type="submit" name="submit">посчитать</button>
+
+    <div class="block">
+        <input id="note" type="text" placeholder="Примечание" name="note"/>
+    </div>
+
+    <button id="submit" type="submit" name="submit">посчитать</button>
 </form>
-<p id="result">
-
-</p>
-<script>
-    const data = {
-        PC: 2000,
-        GAMING_PC: 2500,
-        WINDOWS_10: {
-            title: 'Windows 10',
-            price: 2500,
-            key: 200
-        },
-        WINDOWS_11: {
-            title: 'Windows 11',
-            price: 2500,
-            key: 300
-        },
-        OFFICE: {
-            price: 1500,
-            key: 400
-        },
-        INFO_COPY: 500
-    }
-
-    const done_work = {
-        0: 'ПК: ',
-        1: 'ОС: ',
-        2: 'Office: ',
-        3: 'Копирование информации.'
-    }
-
-    let result = []
-
-    let resultMoney = 0
-
-    const form = document.forms.form
-    form.onsubmit = (e) => {
-        
-        e.preventDefault()
-        const resultBox = document.getElementById('result')
-
-        if (form.pc.checked) {
-            let work = done_work[0]
-            let price = data[form['pc-type'].value]
-
-            if (form['pc-type'] === 'PC') {
-                work += 'Офисный.'
-            } else {
-                work += 'С подсветкой.'
-            }
-            result.push({work, price})
-            resultMoney += price
-        }
-
-
-        if (true) {
-            const win = data[form['os-type'].value]
-
-            let work = done_work[1] + `${win.title}. `
-            let price = 0
-
-            if (form['license-key'].value === 'need-to-buy') {
-                work += '(Нужно активировать)'
-                price += (win.price - win.key) / 2
-            } else if (form['license-key'].value === 'bought') {
-                work += '(Купил ключ)'
-                price += ((win.price - win.key) / 2) + win.key
-            } else if (form['license-key'].value === 'BIOS') {
-                work += '(Ключ подцепился)'
-                price += win.price / 2
-            }
-
-            result.push({work, price})
-            resultMoney += price
-        }
-
-        if (form.office.checked) {
-            let work = done_work[2]
-            let price = 0
-            const office = data.OFFICE
-            if (form['office-type'].value === 'OFFICE') {
-                work += '(Нужно активировать)'
-                price += (office.price - office.key) / 2
-            } else if (form['office-type'].value === 'bought') {
-                work += '(Купил ключ)'
-                price += ((office.price - office.key) / 2) + office.key
-            } else if (form['office-type'].value === 'no-need') {
-                work += '(Ключ со стороны покупателя)'
-                price += office.price / 2
-            }
-            result.push({work, price})
-            resultMoney += price
-        }
-
-        if (form.copy.checked) {
-            result.push({work: done_work[3], price: data.INFO_COPY})
-            resultMoney += data.INFO_COPY
-        }
-        console.log(result)
-        console.log(resultMoney)
-
-        result = form.title.value + '\n' + result.map(item => {
-            return `${item.work} ${item.price}`
-        }).join('\n') + `\nИтого: ${resultMoney}`
-        console.log(result)
-        resultBox.innerText = result
-        copyContent(result)
-
-        result = []
-        resultMoney = 0
-    }
-
-    const copyContent = async (text) => {
-        try {
-            await navigator.clipboard.writeText(text);
-            console.log('Content copied to clipboard');
-        } catch (err) {
-            console.error('Failed to copy: ', err);
-        }
-    }
-</script>
+<p id="result"></p>
+<script src="script.js" type="module"></script>
+<script src="constants.js" type="module"></script>
+<script src="utils.js" type="module"></script>
 </body>
-
 </html>
