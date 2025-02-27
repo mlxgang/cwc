@@ -1,0 +1,136 @@
+@import 'vars.css';
+@import 'reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,600&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  align-items: flex-start;
+  padding: 25px;
+  user-select: none;
+  background-color: var(--bg-color-primary);
+  color: var(--text-secondary);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 10px;
+  position: relative;
+  background-color: var(--bg-color-secondary);
+  color: var(--text-primary);
+}
+
+.block button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: calc(var(--border-radius) - 5px);
+}
+
+.block input[type='text'], .block input[type='number'] {
+  flex-grow: 1;
+  box-sizing: border-box;
+  padding: 5px;
+  border-radius: calc(var(--border-radius) - 5px);
+}
+
+.block textarea {
+  height: 103px;
+}
+
+.block .chevron {
+  margin-left: auto;
+}
+
+.optional {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form {
+  width: 100%;
+}
+
+.form-list {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: var(--border);
+  padding: 10px;
+  border-radius: 20px;
+  min-height: 140px;
+  background-color: var(--color-primary);
+}
+
+.form-item {
+  flex-basis: 160px;
+  flex-grow: 1;
+}
+
+#result-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+#result-container .block {
+  width: 360px;
+}
+
+#result-container button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.chevron {
+  width: 16px;
+  height: 16px;
+}
+
+.active .chevron {
+  rotate: 90deg;
+  color: black;
+}
+
+.button {
+  font-weight: 600;
+}
+
+.button:hover {
+  background-color: var(--bg-color-primary);
+  transition: background-color .2s ease;
+}
+
+.accept:hover, .delete:hover {
+  color: var(--text-primary);
+}
+
+.accept:hover {
+  background-color: var(--color-positive);
+}
+
+.delete:hover {
+  background-color: var(--color-danger);
+}

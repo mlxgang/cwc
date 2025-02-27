@@ -1,0 +1,11 @@
+:root {
+  --border: 2px solid black;
+  --border-radius: 10px;
+  --bg-color-primary: #B2BEBF;
+  --bg-color-secondary: #486966;
+  --text-primary: #F0F8FF;
+  --text-secondary: #3B3936;
+  --color-primary: #889C9B;
+  --color-positive: #54bd2a;
+  --color-danger: #BD2A2E;
+}

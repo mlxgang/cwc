@@ -1,0 +1,22 @@
+label {
+  display: flex;
+  align-items: center;
+}
+
+h2, p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: inline-block;
+}
+
+textarea {
+  resize: none;
+}

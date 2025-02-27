@@ -1,72 +1,83 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8"/>
-    <title>calculator</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>calculator</title>
+  <link rel="stylesheet" href="src/styles/style.css" />
 </head>
 <body>
 <form name="cart" class="form">
-    <div class="block">
-        <input id="title" type="text" placeholder="Название" name="title" required/>
-    </div>
+  <ul class="form-list">
+    <li class="block form-item">
+      <input id="title" type="text" placeholder="Название" name="title" required autofocus />
+    </li>
 
-    <div class="block">
-        <label id="pc_build_option">
-            <h2>Сборка ПК</h2>
-        </label>
-    </div>
+    <li class="block form-item">
+      <button id="pc_build-btn" class="button" type="button">
+        <span>Сборка ПК</span>
+        <svg class="chevron">
+          <use href="src/assets/sprites.svg#chevron"></use>
+        </svg>
+      </button>
+    </li>
 
-    <div class="block">
-        <h2>Операционная система</h2>
-        <label>
-            <input type="radio" name="os" value="windows_10" checked/>
-            Windows 10
-        </label>
-        <label>
-            <input type="radio" name="os" value="windows_11"/>
-            Windows 11
-        </label>
-    </div>
+    <li class="block form-item">
+      <button id="os-btn" class="button" type="button">
+        <span>ОС</span>
+        <svg class="chevron">
+          <use href="src/assets/sprites.svg#chevron"></use>
+        </svg>
+      </button>
+    </li>
 
-    <div class="block">
-        <h2>Ключ</h2>
-        <label>
-            <input type="radio" name="os_key" value="bios" checked/>
-            Ключ подцепился
-        </label>
-        <label>
-            <input type="radio" name="os_key" value="need-to-buy"/>
-            Нужно купить ключ
-        </label>
-        <label>
-            <input type="radio" name="os_key" value="bought"/>
-            Ключ покупал
-        </label>
-    </div>
+    <li class="block form-item">
+      <button id="os_key-btn" class="button" type="button">
+        <span>Ключ ОС</span>
+        <svg class="chevron">
+          <use href="src/assets/sprites.svg#chevron"></use>
+        </svg>
+      </button>
+    </li>
 
-    <div class="block">
-        <label id="office_option">
-            <h2>MS Office</h2>
-        </label>
-    </div>
+    <li class="block form-item">
+      <button id="office-btn" class="button" type="button">
+        <span>MS Office</span>
+        <svg class="chevron">
+          <use href="src/assets/sprites.svg#chevron"></use>
+        </svg>
+      </button>
+    </li>
 
-    <div class="block">
-        <label class="optional">
-            <input type="checkbox" name="copy"/>
-            <span>Копирование информации</span>
-        </label>
-    </div>
+    <li class="block form-item">
+      <button id="copy-btn" class="button" type="button">
+        <span>Копирование</span>
+        <svg class="chevron">
+          <use href="src/assets/sprites.svg#chevron"></use>
+        </svg>
+      </button>
+    </li>
 
-    <div class="block">
-        <input id="note" type="text" placeholder="Примечание" name="note"/>
-    </div>
+    <li class="block form-item">
+      <button id="custom-btn" class="button" type="button">
+        <span>Свое значение</span>
+        <svg class="chevron">
+          <use href="src/assets/sprites.svg#chevron"></use>
+        </svg>
+      </button>
+    </li>
 
-    <button id="submit" type="submit" name="submit">посчитать</button>
+    <li class="block form-item">
+      <textarea id="note" placeholder="Примечание" name="note"></textarea>
+    </li>
+
+    <li class="block form-item">
+      <button class="button accept" type="submit">Добавить в список</button>
+      <button id="copy-to-clipboard" class="button accept" type="button">Скопировать</button>
+      <button id="clear" class="button delete" type="button">Очистить список</button>
+    </li>
+  </ul>
 </form>
-<p id="result"></p>
-<script src="script.js" type="module"></script>
-<script src="constants.js" type="module"></script>
-<script src="utils.js" type="module"></script>
+<ul id="result-container"></ul>
+<script src="src/script.js" type="module"></script>
 </body>
 </html>

@@ -1,1 +1,1 @@
-http-server --cors -c-1
+http-server ./src --cors -c-1
