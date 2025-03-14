@@ -1,26 +1,28 @@
 import { prices } from '../prices.js';
-import { capitalizeText } from './capitalizeText.js';
-import { dataPriceHandler } from './dataPriceHandler.js';
+import { capitalizeText } from '../utils/capitalizeText.js';
+import { dataPriceHandler } from '../utils/dataPriceHandler.js';
 import { localStorageHandler } from './localStorageHandler.js';
 
-export const getPrettyResult = () => {
+export const getFormattedResult = () => {
   const data = localStorageHandler.get();
-
+  
   if (data) {
     let resultSummary = 0;
     let result = [];
-
+    
     data.forEach(item => {
       let summary = 0;
       let resultItem = '';
-
+      
       for (let key in item) {
         const value = item[key];
         if (value) {
           switch (key) {
             case 'title':
-            case 'note':
               resultItem += value + '\n';
+              break;
+            case 'note':
+              resultItem += 'Доп. информация: ' + value + '\n';
               break;
             case 'pc_build': {
               const [data, price] = prices.pc_build[value];
