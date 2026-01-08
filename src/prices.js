@@ -6,7 +6,7 @@ export const prices = {
     _desc: 'Сборка ПК',
     get regular() {
       const title = 'Офисный';
-      const price = 2000;
+      const price = 1250;
       return dataPriceHandler(this._desc, price, '', title);
     },
     get gaming() {
