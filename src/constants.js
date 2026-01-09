@@ -67,3 +67,5 @@ export const INPUTS = [
   { name: 'copy', default: false, content: COPY_INPUTS },
   { name: 'custom', default: false, content: CUSTOM_INPUTS }
 ];
+
+export const RUBBLE = '₽'

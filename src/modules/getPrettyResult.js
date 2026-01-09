@@ -2,16 +2,19 @@ import { prices } from '../prices.js';
 import { capitalizeText } from '../utils/capitalizeText.js';
 import { dataPriceHandler } from '../utils/dataPriceHandler.js';
 import { localStorageHandler } from './localStorageHandler.js';
+import { RUBBLE } from '../constants.js';
 
 export const getPrettyResult = () => {
   const data = localStorageHandler.get();
 
   if (data) {
     let resultSummary = 0;
+    let resultKeySummary = 0
     let result = [];
 
     data.forEach(item => {
       let summary = 0;
+      let keySummary = 0;
       let resultItem = '';
 
       for (let key in item) {
@@ -31,16 +34,18 @@ export const getPrettyResult = () => {
               break;
             }
             case 'os': {
-              const osKey = item.os_key;
-              const [data, price] = prices.os[value][osKey];
+              const osKey = item.os_key; // bios, buy, need to buy
+              const [data, price, keyPrice] = prices.os[value][osKey];
               resultItem += data + '\n';
               summary += price;
+              keySummary += keyPrice;
               break;
             }
             case 'office': {
               const [data, price] = prices.office[value];
               resultItem += data + '\n';
               summary += price;
+              if (value === 'bought') keySummary += prices.office._key
               break;
             }
             case 'copy': {
@@ -61,10 +66,11 @@ export const getPrettyResult = () => {
           }
         }
       }
-      resultItem += 'Итого: ' + summary + ' ₽\n';
+      resultItem += `Итого: ${summary} ${RUBBLE}\n`;
       resultSummary += summary;
+      resultKeySummary += keySummary;
       result.push(resultItem);
     });
-    return { result, resultSummary };
+    return { result, resultSummary, resultKeySummary };
   }
 };

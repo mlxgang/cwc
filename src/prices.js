@@ -42,11 +42,11 @@ export const prices = {
     getBios(title, price) {
       return dataPriceHandler(this._desc, price / 2, title, KEYS.bios);
     },
-    getNeed_to_buy(title, price, key) {
-      return dataPriceHandler(this._desc, (price - key) / 2, title, KEYS.need_to_buy);
+    getNeed_to_buy(title, price, keyPrice) {
+      return dataPriceHandler(this._desc, (price - keyPrice) / 2 - keyPrice, title, KEYS.need_to_buy);
     },
-    getBought(title, price, key) {
-      return dataPriceHandler(this._desc, price / 2 + key, title, KEYS.bought);
+    getBought(title, price, keyPrice) {
+      return dataPriceHandler(this._desc, (price - keyPrice) / 2 + keyPrice, title, KEYS.bought, keyPrice);
     }
   },
   office: {
@@ -58,7 +58,7 @@ export const prices = {
       return dataPriceHandler(this._desc, price, '', KEYS.need_to_buy);
     },
     get bought() {
-      const price = this._price / 2 + this._key;
+      const price = (this._price - this._key) / 2 + this._key;
       return dataPriceHandler(this._desc, price, '', KEYS.bought);
     },
     get client() {

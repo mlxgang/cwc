@@ -1,4 +1,4 @@
-import { MESSAGES } from '../constants.js';
+import { MESSAGES, RUBBLE } from '../constants.js';
 import { clipboardCopy } from '../utils/clipboardCopy.js';
 import { getPrettyResult } from './getPrettyResult.js';
 import { localStorageHandler } from './localStorageHandler.js';
@@ -10,7 +10,7 @@ export const renderResult = () => {
   const data = localStorageHandler.get();
 
   if (data) {
-    const { result, resultSummary } = getPrettyResult();
+    const { result, resultSummary, resultKeySummary } = getPrettyResult();
 
     for (let i = 0; i < data.length; i++) {
       const resultItem = document.createElement('li');
@@ -34,7 +34,9 @@ export const renderResult = () => {
       resultContainer.appendChild(resultItem);
     }
     const summaryItem = document.createElement('li');
-    summaryItem.innerText += 'Общий итог: ' + resultSummary + ' ₽';
+    const title = `Общий итог: ${resultSummary} ${RUBBLE}`
+    const description = resultKeySummary > 0 ? `\n(из них - ${resultKeySummary} за ключи, ${resultSummary - resultKeySummary} за работу)` : '';
+    summaryItem.innerText += title + description
     resultContainer.appendChild(summaryItem);
   } else {
     const resultItem = document.createElement('li');

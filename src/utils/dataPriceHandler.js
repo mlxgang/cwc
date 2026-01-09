@@ -1,7 +1,9 @@
-export const dataPriceHandler = (desc, price, title = '', opt = '') => {
-  title = title !== '' ? `: ${title} ` : '';
-  desc = opt !== '' && title === '' ? desc + '. ' : desc;
+import { RUBBLE } from '../constants.js';
 
-  const data = desc + title + opt + ' - ' + price;
-  return [data, price];
+export const dataPriceHandler = (description, price, title = '', keyState = '', keyPrice = 0) => {
+  title = title !== '' ? `: ${title} ` : '';
+  description = keyState !== '' && title === '' ? description + '. ' : description;
+
+  const data = `${description} ${title}\n ${keyState} - ${price} ${RUBBLE}`;
+  return [data, price, keyPrice];
 };
