@@ -121,6 +121,7 @@ body {
 .button:hover {
   background-color: var(--bg-color-primary);
   transition: background-color .2s ease;
+  cursor: pointer;
 }
 
 .accept:hover, .delete:hover {
