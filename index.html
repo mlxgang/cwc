@@ -9,6 +9,12 @@
 <form name="cart" class="form">
   <ul class="form-list">
     <li class="block form-item">
+      <button class="button accept" type="submit">Добавить в список</button>
+      <button id="copy-to-clipboard" class="button accept" type="button">Скопировать</button>
+      <button id="clear" class="button delete" type="button">Очистить список</button>
+    </li>
+
+    <li class="block form-item">
       <input id="title" type="text" placeholder="Название" name="title" required autofocus />
     </li>
 
@@ -95,12 +101,6 @@
 
     <li class="block form-item">
       <textarea id="note" placeholder="Примечание" name="note"></textarea>
-    </li>
-
-    <li class="block form-item">
-      <button class="button accept" type="submit">Добавить в список</button>
-      <button id="copy-to-clipboard" class="button accept" type="button">Скопировать</button>
-      <button id="clear" class="button delete" type="button">Очистить список</button>
     </li>
   </ul>
 </form>
