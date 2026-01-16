@@ -70,5 +70,20 @@ export const prices = {
     const desc = 'Копирование информации';
     const price = 750;
     return dataPriceHandler(desc, price);
+  },
+  get macos() {
+    const desc = 'Установлен MacOS'
+    const price = 3500
+    return dataPriceHandler(desc, price / 2);
+  },
+  get mitino() {
+    const desc = 'Поездка в Митино'
+    const price = 1000
+    return dataPriceHandler(desc, price);
+  },
+  get trehgorka() {
+    const desc = 'Встреча в Трехгоррке'
+    const price = 500
+    return dataPriceHandler(desc, price);
   }
 };

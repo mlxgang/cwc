@@ -45,6 +45,21 @@ const OFFICE_INPUTS = {
   ]
 };
 
+const MACOS_INPUTS = {
+  type: 'checkbox',
+  options: [{ title: 'MacOS' }]
+};
+
+const MITINO_INPUTS = {
+  type: 'checkbox',
+  options: [{ title: 'Митино' }]
+};
+
+const TREHGORKA_INPUTS = {
+  type: 'checkbox',
+  options: [{ title: 'Митино' }]
+};
+
 const COPY_INPUTS = {
   type: 'checkbox',
   options: [{ title: 'Копирование' }]
@@ -64,6 +79,9 @@ export const INPUTS = [
   { name: 'os', default: true, content: OS_INPUTS },
   { name: 'os_key', default: true, content: OS_KEY_INPUTS },
   { name: 'office', default: false, content: OFFICE_INPUTS },
+  { name: 'macos', default: false, content: MACOS_INPUTS },
+  { name: 'mitino', default: false, content: MITINO_INPUTS },
+  { name: 'trehgorka', default: false, content: TREHGORKA_INPUTS },
   { name: 'copy', default: false, content: COPY_INPUTS },
   { name: 'custom', default: false, content: CUSTOM_INPUTS }
 ];
