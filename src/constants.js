@@ -46,23 +46,23 @@ const OFFICE_INPUTS = {
 };
 
 const MACOS_INPUTS = {
+  title: 'MacOS',
   type: 'checkbox',
-  options: [{ title: 'MacOS' }]
 };
 
 const MITINO_INPUTS = {
+  title: 'Митино',
   type: 'checkbox',
-  options: [{ title: 'Митино' }]
 };
 
 const TREHGORKA_INPUTS = {
+  title: 'Трехгорка',
   type: 'checkbox',
-  options: [{ title: 'Митино' }]
 };
 
 const COPY_INPUTS = {
+  title: 'Копирование',
   type: 'checkbox',
-  options: [{ title: 'Копирование' }]
 };
 
 const CUSTOM_INPUTS = {

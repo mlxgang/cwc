@@ -80,6 +80,10 @@ body {
   flex-grow: 1;
 }
 
+.form-item label {
+    gap: 6px;
+}
+
 #result-container {
   display: flex;
   flex-direction: column;

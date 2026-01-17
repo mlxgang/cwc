@@ -9,17 +9,11 @@
 <form name="cart" class="form">
   <ul class="form-list">
     <li class="block form-item">
-      <button class="button accept" type="submit">Добавить в список</button>
-      <button id="copy-to-clipboard" class="button accept" type="button">Скопировать</button>
-      <button id="clear" class="button delete" type="button">Очистить список</button>
-    </li>
-
-    <li class="block form-item">
       <input id="title" type="text" placeholder="Название" name="title" required autofocus />
     </li>
 
     <li class="block form-item">
-      <button id="pc_build-btn" class="button" type="button">
+      <button id="pc_build-elem" class="button" type="button">
         <span>Сборка ПК</span>
         <svg class="chevron">
           <use href="src/assets/sprites.svg#chevron"></use>
@@ -28,7 +22,7 @@
     </li>
 
     <li class="block form-item">
-      <button id="os-btn" class="button" type="button">
+      <button id="os-elem" class="button" type="button">
         <span>ОС</span>
         <svg class="chevron">
           <use href="src/assets/sprites.svg#chevron"></use>
@@ -37,7 +31,7 @@
     </li>
 
     <li class="block form-item">
-      <button id="os_key-btn" class="button" type="button">
+      <button id="os_key-elem" class="button" type="button">
         <span>Ключ ОС</span>
         <svg class="chevron">
           <use href="src/assets/sprites.svg#chevron"></use>
@@ -46,7 +40,7 @@
     </li>
 
     <li class="block form-item">
-      <button id="office-btn" class="button" type="button">
+      <button id="office-elem" class="button" type="button">
         <span>MS Office</span>
         <svg class="chevron">
           <use href="src/assets/sprites.svg#chevron"></use>
@@ -55,43 +49,23 @@
     </li>
 
     <li class="block form-item">
-      <button id="macos-btn" class="button" type="button">
-        <span>MacOS</span>
-        <svg class="chevron">
-          <use href="src/assets/sprites.svg#chevron"></use>
-        </svg>
-      </button>
+      <div id="macos-elem"></div>
     </li>
 
     <li class="block form-item">
-      <button id="mitino-btn" class="button" type="button">
-        <span>Митино</span>
-        <svg class="chevron">
-          <use href="src/assets/sprites.svg#chevron"></use>
-        </svg>
-      </button>
+      <div id="mitino-elem"></div>
     </li>
 
     <li class="block form-item">
-      <button id="trehgorka-btn" class="button" type="button">
-        <span>Трехгорка</span>
-        <svg class="chevron">
-          <use href="src/assets/sprites.svg#chevron"></use>
-        </svg>
-      </button>
+      <div id="trehgorka-elem"></div>
     </li>
 
     <li class="block form-item">
-      <button id="copy-btn" class="button" type="button">
-        <span>Копирование</span>
-        <svg class="chevron">
-          <use href="src/assets/sprites.svg#chevron"></use>
-        </svg>
-      </button>
+      <div id="copy-elem"></div>
     </li>
 
     <li class="block form-item">
-      <button id="custom-btn" class="button" type="button">
+      <button id="custom-elem" class="button" type="button">
         <span>Свое значение</span>
         <svg class="chevron">
           <use href="src/assets/sprites.svg#chevron"></use>
@@ -101,6 +75,12 @@
 
     <li class="block form-item">
       <textarea id="note" placeholder="Примечание" name="note"></textarea>
+    </li>
+
+    <li class="block form-item">
+      <button class="button accept" type="submit">Добавить в список</button>
+      <button id="copy-to-clipboard" class="button accept" type="button">Скопировать</button>
+      <button id="clear" class="button delete" type="button">Очистить список</button>
     </li>
   </ul>
 </form>

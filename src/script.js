@@ -3,6 +3,7 @@ import { localStorageHandler } from './modules/localStorageHandler.js';
 import { renderResult } from './modules/renderResult.js';
 import { clipboardCopy } from './utils/clipboardCopy.js';
 import { generateBlock } from './utils/generateBlock.js';
+import { generateInput } from './utils/generateInput.js';
 
 const resetBtn = document.getElementById('clear');
 resetBtn.addEventListener('click', () => {
@@ -23,20 +24,28 @@ renderResult();
 const form = document.forms.cart;
 
 INPUTS.forEach(input => {
-  const dropdownBtn = document.getElementById(`${input.name}-btn`);
+  const rootElem = document.getElementById(`${input.name}-elem`);
 
-  dropdownBtn.addEventListener('click', e => {
-    e.preventDefault();
-    dropdownBtn.classList.toggle('active');
+  if (rootElem.type === 'button') {
+    rootElem.addEventListener('click', e => {
+      e.preventDefault();
+      rootElem.classList.toggle('active');
 
-    if (dropdownBtn.classList.contains('active')) {
-      generateBlock(dropdownBtn, input.name, input.content);
-    } else {
-      document.getElementById(`${input.name}-container`).remove();
-    }
-  });
+      if (rootElem.classList.contains('active')) {
+        generateBlock(rootElem, input.name, input.content);
+      } else {
+        document.getElementById(`${input.name}-container`).remove();
+      }
+    });
 
-  if (input.default) dropdownBtn.click();
+    if (input.default) rootElem.click();
+  } else {
+    const inputElem = input
+    inputElem.title = input.content.title
+    inputElem.type = input.content.type
+
+    rootElem.append(generateInput(inputElem))
+  }
 });
 
 form.onsubmit = e => {
