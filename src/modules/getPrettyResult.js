@@ -48,8 +48,11 @@ export const getPrettyResult = () => {
               if (value === 'bought') keySummary += prices.office._key
               break;
             }
-            case 'copy': {
-              const [data, price] = prices.copy;
+            case 'copy':
+            case 'macos':
+            case 'mitino':
+            case 'trehgorka': {
+              const [data, price] = prices[key];
               resultItem += data + '\n';
               summary += price;
               break;
