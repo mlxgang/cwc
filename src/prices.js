@@ -43,7 +43,7 @@ export const prices = {
       return dataPriceHandler(this._desc, price / 2, title, KEYS.bios);
     },
     getNeed_to_buy(title, price, keyPrice) {
-      return dataPriceHandler(this._desc, (price - keyPrice) / 2 - keyPrice, title, KEYS.need_to_buy);
+      return dataPriceHandler(this._desc, (price - keyPrice) / 2, title, KEYS.need_to_buy);
     },
     getBought(title, price, keyPrice) {
       return dataPriceHandler(this._desc, (price - keyPrice) / 2 + keyPrice, title, KEYS.bought, keyPrice);
